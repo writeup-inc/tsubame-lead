@@ -408,5 +408,28 @@ figure img { box-shadow: 0 18px 34px rgba(23,34,48,.12); }
 .chatgpt-questions button:first-child .question-copy small, .chatgpt-questions button:hover .question-copy small { color: #b9c1cb; }
 .chatgpt-questions .question-arrow { color: var(--accent); font-size: 15px; }
 .chatgpt-panel > .chatgpt-notice { min-height: 32px; margin-bottom: 0; color: #7a828b; font-size: 9px; }
+
+/* Ask-mode review: make cost and buying flow explicit without adding sections. */
+.positioning { min-height: 650px; padding-block: 78px; }
+.workflow { padding-top: 96px; padding-bottom: 84px; }
+.workflow-card { min-height: 450px; }
+.workflow-card header { margin-bottom: 42px; }
+.workflow-card > p { min-height: 72px; }
+.mini-ui .mock-action { display: block; border: 0; border-radius: 2px; font-size: 10px; font-weight: 800; text-align: center; }
+.filters .mock-action { padding: 12px; color: #fff; background: var(--ink); }
+.result .mock-action { padding: 11px; color: #fff; background: var(--ink); }
+table { min-width: 1040px; }
+.table-hint { display: none; }
+.terms-bar { grid-template-columns: repeat(5, 1fr); }
+.terms-bar > p { grid-column: 1 / 5; }
+.terms-bar > .button { grid-area: 2 / 5; }
+.microcopy strong { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .terms-bar { grid-template-columns: repeat(2, 1fr); }
+  .terms-bar > p { grid-column: 1 / 2; }
+  .terms-bar > .button { grid-area: 4 / 2; }
+}
+
 @media (max-width: 900px) { .ai-consult { grid-template-columns: 1fr; } .comparison-verdict { grid-template-columns: 1fr 1fr; } .comparison-verdict p { grid-column: 1 / -1; margin-left: 0; } }
-@media (max-width: 560px) { .hero-copy h1 { font-size: clamp(40px, 11.7vw, 52px); line-height: 1.04; } .comparison-verdict { grid-template-columns: 1fr; padding: 20px; } .comparison-verdict p { grid-column: auto; } .ai-consult { display: block; } .ai-consult-card { margin-top: 34px; } .chatgpt-launcher { right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); } .chatgpt-panel { width: calc(100vw - 28px); } }
+@media (max-width: 560px) { .hero-copy h1 { font-size: clamp(40px, 11.7vw, 52px); line-height: 1.04; } .comparison-verdict { grid-template-columns: 1fr; padding: 20px; } .comparison-verdict p { grid-column: auto; } .table-hint { display: block; margin: -10px 0 12px; color: var(--ink-mute); font-size: 10px; font-weight: 800; text-align: right; } .ai-consult { display: block; } .ai-consult-card { margin-top: 34px; } .chatgpt-launcher { right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); } .chatgpt-trigger { min-width: 52px; width: 52px; height: 52px; padding: 6px; justify-content: center; } .chatgpt-trigger > span:last-child { display: none; } .chatgpt-panel { width: calc(100vw - 28px); } .terms-bar { grid-template-columns: 1fr; } .terms-bar > p, .terms-bar > .button { grid-area: auto / 1; } }

@@ -63,12 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const slider = document.querySelector('#send-count');
   const output = document.querySelector('.sim-panel output');
-  const results = document.querySelectorAll('.sim-results strong');
+  const costTotal = document.querySelector('#sim-cost-total');
+  const appointmentTotal = document.querySelector('.accent-result strong');
   slider?.addEventListener('input', () => {
     const count = Number(slider.value);
     if (output) output.textContent = `${count.toLocaleString()}通`;
-    if (results[0]) results[0].innerHTML = `${(count * 5).toLocaleString()}<small>円</small>`;
-    if (results[1]) results[1].innerHTML = `${Math.ceil(count * 0.001)}〜${Math.ceil(count * 0.002)}<small>件</small>`;
+    if (costTotal) costTotal.innerHTML = `${(500000 + count * 5).toLocaleString()}<small>円</small>`;
+    if (appointmentTotal) appointmentTotal.innerHTML = `${Math.ceil(count * 0.001)}〜${Math.ceil(count * 0.002)}<small>件</small>`;
   });
 
   const launcher = document.querySelector('.chatgpt-launcher');
