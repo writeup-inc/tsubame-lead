@@ -440,10 +440,10 @@
 
         <h2>売り手の説明だけで、決めないでください。</h2>
 
-        <p>最新の競合、料金総額、向く企業、注意点。聞きにくいことほど、ChatGPTが公開情報を調べて比較できる質問を用意しました。</p>
+        <p>5社の最新比較と、フォーム営業の最新効果。聞きにくいことほど、ChatGPTが公開情報を調べて確認できる質問を用意しました。</p>
       </div>
 
-      <div class="ai-consult-card"><div><span class="ai-logo chatgpt">◎</span><p>このページの公開情報を渡したうえで、具体的な競合名、初期費用を含む総額、証跡の違いまで比較表にできます。</p></div><button class="button light-button" type="button" data-open-chatgpt>最新の競合を比較する <span>↗</span></button><small>別画面のChatGPTへ質問を渡します。環境によっては、そのまま回答が始まります。</small></div>
+      <div class="ai-consult-card"><div><span class="ai-logo chatgpt">◎</span><p>価格・送信体系・証跡を比べる「5社比較」と、返信率・アポ率・向く商材を調べる「最新効果」から選べます。</p></div><button class="button light-button" type="button" data-open-chatgpt>最新情報をChatGPTで確認する <span>↗</span></button><small>別画面のChatGPTへ質問を渡します。環境によっては、そのまま回答が始まります。</small></div>
     </section>
 
     <section class="responsible-use">
@@ -529,11 +529,11 @@
     </footer>
 
     <div class="chatgpt-launcher">
-      <button class="chatgpt-trigger" type="button" id="chatgpt-trigger" aria-expanded="false" aria-controls="chatgpt-panel"><span class="ai-logo chatgpt">◎</span><span>ChatGPTに聞く<small>最新の競合比較</small></span></button>
-      <aside class="chatgpt-panel" id="chatgpt-panel" role="dialog" aria-label="ChatGPTでつばめリードについて質問する" hidden>
-        <header><div><span class="ai-logo chatgpt">◎</span><div><b>ChatGPTに聞く</b><small>質問を選ぶと別画面で開きます</small></div></div><button type="button" id="chatgpt-close" aria-label="ChatGPT質問パネルを閉じる">×</button></header>
-        <p>最新の公式情報を検索し、具体的な競合名と条件を比較できます。</p>
-        <div class="chatgpt-questions"><button type="button" data-question="つばめリードと、FormReach、Knockbot、aiformly、CREX、TODOKU FORMなど主要なフォーム営業サービスを、現在確認できる最新の公式公開情報で比較表にしてください。各社について、サービス形態、初期費用、月額費用、成功送信単価、最低利用数・契約期間、営業リスト、文面作成、送信証跡、無料体験、5,000通利用時と10,000通利用時の初回総額を整理してください。税別・税込を区別し、公開情報で確認できない項目は推測せず不明としてください。つばめリードを優遇せず、各行に公式の参照URLを付け、調査日、安さ、証跡、導入しやすさの観点別に結論を示してください。">最新の競合比較表を作って<span>↗</span></button><button type="button" data-question="成功送信1通5円という表示について、初期費用や月額費用、最低利用数まで含めた総額で主要な競合と比較し、どの利用件数なら割安・割高になるかを最新の公式公開情報から計算してください。">総額で本当に安いか調べて<span>↗</span></button><button type="button" data-question="自社の商材がつばめリードに向いているか、他のフォーム営業ツールや代行サービスも候補に含め、商材単価、対象企業数、営業体制、必要な証跡の観点から比較してください。">自社に合う選択肢を比べて<span>↗</span></button></div>
+      <button class="chatgpt-trigger" type="button" id="chatgpt-trigger" aria-expanded="false" aria-controls="chatgpt-panel"><span class="ai-logo chatgpt">◎</span><span>ChatGPTに聞く<small>比較・効果を調査</small></span></button>
+      <aside class="chatgpt-panel" id="chatgpt-panel" role="dialog" aria-live="polite" aria-label="ChatGPTでフォーム営業の最新情報を確認する" hidden>
+        <header><div><span class="ai-logo chatgpt">◎</span><div><b>最新情報を確認</b><small>選ぶとChatGPTが別画面で開きます</small></div></div><button type="button" id="chatgpt-close" aria-label="ChatGPT質問パネルを閉じる">×</button></header>
+        <p><strong>最新の比較表を表示しますか？</strong><br>公式情報を検索して、比較または効果を整理します。</p>
+        <div class="chatgpt-questions"><button type="button" data-question-kind="comparison"><span class="question-copy"><b>5社の最新比較表</b><small>価格・送信体系・証跡</small></span><span class="question-arrow">↗</span></button><button type="button" data-question-kind="effectiveness"><span class="question-copy"><b>最新の効果を調べる</b><small>返信率・アポ率・向く商材</small></span><span class="question-arrow">↗</span></button></div>
         <p class="chatgpt-notice" id="chatgpt-notice" role="status">ChatGPT側の仕様により、そのまま回答が始まる場合があります。</p>
       </aside>
     </div>

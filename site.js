@@ -1,4 +1,14 @@
 const canonicalUrl = 'https://writeup-inc.github.io/tsubame-lead/';
+const starterQuestions = {
+  comparison: `つばめリードと主要なフォーム営業サービス4社を、合計5社で比較する最新の比較表を作成してください。競合4社は、現在の公式公開情報を検索したうえで、FormReach、Knockbot、aiformly、TODOKU FORMを基本候補とし、より主要で比較に適したサービスがあれば理由を示して入れ替えてください。
+
+比較項目は、サービス形態、初期費用、月額費用、成功送信単価、5,000通・10,000通利用時の初回総額、課金・送信体系、最低利用数・契約期間、営業リスト、文面作成、送信失敗時の扱い、送信証跡、全件動画の有無、無料体験、運営会社・サポート体制としてください。「安心感」は、料金と運用条件の公開度、送信証跡、禁止先除外、運営会社・問い合わせ先、サポート体制という確認可能な要素に分解してください。
+
+検索日を明記し、各社の行に公式の参照URLを付けてください。税別・税込を区別し、確認できない項目は推測せず「公開情報で確認できず」としてください。つばめリードを優遇せず、最後に価格、証跡、導入しやすさ、運用の安心感の観点別に結論を示してください。`,
+  effectiveness: `問い合わせフォーム営業について、現在確認できる最新の効果と相場を調べてください。知りたいのは、ツール・代行サービスの送信単価、送信成功率、返信率・反応率、アポイント率、1,000通・5,000通・10,000通送った場合の返信数とアポ数の目安、フォーム営業に向いている商材・サービス、向いていない商材・サービス、成果を左右するターゲット・文面・送信時期です。
+
+公式サイト、導入事例、調査資料など出典を確認し、一般的な目安と個別企業の成功事例を混同しないでください。自社発表の事例はその旨を示し、数字の定義、対象期間、母数が分かる場合は併記してください。確認できない数値は推測せず、成果保証のような表現は避けてください。検索日と参照URLを付け、最後に「どのようなBtoBサービスなら試す価値が高いか」を具体的にまとめてください。`
+};
 
 function buildChatGptPrompt(question) {
   return `つばめリードというBtoB向けフォーム営業サービスについて、顧客からの質問に中立な立場で答えてください。
@@ -66,14 +76,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const panel = document.querySelector('#chatgpt-panel');
   const close = document.querySelector('#chatgpt-close');
   const notice = document.querySelector('#chatgpt-notice');
+  const comparisonSection = document.querySelector('.comparison');
+  const autoPromptKey = 'tsubame-chatgpt-auto-prompt-shown';
+  let autoPromptShown = false;
+  let autoPromptTimer;
+  let comparisonObserver;
 
-  const openPanel = () => {
+  try {
+    autoPromptShown = sessionStorage.getItem(autoPromptKey) === '1';
+  } catch (_) {
+    autoPromptShown = false;
+  }
+
+  const markPromptShown = () => {
+    autoPromptShown = true;
+    try {
+      sessionStorage.setItem(autoPromptKey, '1');
+    } catch (_) {
+      // Storage can be unavailable in privacy-restricted browsers.
+    }
+    if (autoPromptTimer) window.clearTimeout(autoPromptTimer);
+    comparisonObserver?.disconnect();
+  };
+
+  const openPanel = (options = {}) => {
     if (!launcher || !trigger || !panel) return;
+    const isAutomatic = options.auto === true;
+    markPromptShown();
     panel.hidden = false;
     trigger.hidden = true;
     trigger.setAttribute('aria-expanded', 'true');
     launcher.classList.add('is-open');
-    close?.focus();
+    if (!isAutomatic) close?.focus();
   };
 
   const closePanel = () => {
@@ -89,8 +123,25 @@ document.addEventListener('DOMContentLoaded', () => {
   trigger?.addEventListener('click', openPanel);
   close?.addEventListener('click', closePanel);
   panel?.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-question]');
+    const button = event.target.closest('[data-question-kind]');
     if (!button) return;
-    openChatGPT(button.dataset.question, notice);
+    const question = starterQuestions[button.dataset.questionKind];
+    if (!question) return;
+    openChatGPT(question, notice);
   });
+
+  const openAutomaticPrompt = () => {
+    if (autoPromptShown || !panel?.hidden) return;
+    openPanel({ auto: true });
+  };
+
+  if (!autoPromptShown) {
+    autoPromptTimer = window.setTimeout(openAutomaticPrompt, 15000);
+    if ('IntersectionObserver' in window && comparisonSection) {
+      comparisonObserver = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) openAutomaticPrompt();
+      }, { rootMargin: '0px 0px -20% 0px', threshold: 0.05 });
+      comparisonObserver.observe(comparisonSection);
+    }
+  }
 });
