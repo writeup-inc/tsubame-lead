@@ -425,6 +425,20 @@ table { min-width: 1040px; }
 .terms-bar > .button { grid-area: 2 / 5; }
 .microcopy strong { color: var(--ink); }
 
+/* Spacing rhythm pass: keep the editorial breathing room without stacking 120px gaps. */
+section[id],
+#price { scroll-margin-top: 72px; }
+.evidence-preview { padding-block: 96px; }
+.workflow { padding-top: 88px; padding-bottom: 76px; }
+.comparison,
+.simulator,
+.decision-guide,
+.ai-consult,
+.responsible-use,
+.faq { padding-top: 96px; padding-bottom: 96px; }
+.section-heading { margin-bottom: 48px; }
+.fit-card h3 { margin-bottom: 28px; }
+
 @media (max-width: 900px) {
   .terms-bar { grid-template-columns: repeat(2, 1fr); }
   .terms-bar > p { grid-column: 1 / 2; }
@@ -432,4 +446,4 @@ table { min-width: 1040px; }
 }
 
 @media (max-width: 900px) { .ai-consult { grid-template-columns: 1fr; } .comparison-verdict { grid-template-columns: 1fr 1fr; } .comparison-verdict p { grid-column: 1 / -1; margin-left: 0; } }
-@media (max-width: 560px) { .hero-copy h1 { font-size: clamp(40px, 11.7vw, 52px); line-height: 1.04; } .comparison-verdict { grid-template-columns: 1fr; padding: 20px; } .comparison-verdict p { grid-column: auto; } .table-hint { display: block; margin: -10px 0 12px; color: var(--ink-mute); font-size: 10px; font-weight: 800; text-align: right; } .ai-consult { display: block; } .ai-consult-card { margin-top: 34px; } .chatgpt-launcher { right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); } .chatgpt-trigger { min-width: 52px; width: 52px; height: 52px; padding: 6px; justify-content: center; } .chatgpt-trigger > span:last-child { display: none; } .chatgpt-panel { width: calc(100vw - 28px); } .terms-bar { grid-template-columns: 1fr; } .terms-bar > p, .terms-bar > .button { grid-area: auto / 1; } }
+@media (max-width: 560px) { .hero-copy h1 { font-size: clamp(40px, 11.7vw, 52px); line-height: 1.04; } .evidence-preview, .positioning, .workflow, .comparison, .simulator, .decision-guide, .ai-consult, .responsible-use, .faq { padding-top: 72px; padding-bottom: 72px; } .section-heading { margin-bottom: 34px; } .comparison-verdict { grid-template-columns: 1fr; padding: 20px; } .comparison-verdict p { grid-column: auto; } .table-hint { display: block; margin: -8px 0 12px; color: var(--ink-mute); font-size: 10px; font-weight: 800; text-align: right; } .ai-consult { display: block; } .ai-consult-card { margin-top: 30px; } .chatgpt-launcher { right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); } .chatgpt-trigger { min-width: 52px; width: 52px; height: 52px; padding: 6px; justify-content: center; } .chatgpt-trigger > span:last-child { display: none; } .chatgpt-panel { width: calc(100vw - 28px); } .terms-bar { grid-template-columns: 1fr; } .terms-bar > p, .terms-bar > .button { grid-area: auto / 1; } }
