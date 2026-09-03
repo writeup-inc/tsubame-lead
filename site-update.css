@@ -386,28 +386,31 @@ figure img { box-shadow: 0 18px 34px rgba(23,34,48,.12); }
 .ai-consult-card .button { width: 100%; margin-top: 28px; color: #fff; background: var(--accent-strong); border: 0; }
 .ai-consult-card > small { display: block; margin-top: 13px; color: #707883; font-size: 10px; line-height: 1.6; text-align: center; }
 .chatgpt-launcher { position: fixed; right: 24px; bottom: 24px; z-index: 60; }
+.chatgpt-launcher.is-open { inset: 0; display: grid; place-items: center; padding: 24px; background: rgba(13,23,38,.58); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+body.chatgpt-modal-open { overflow: hidden; }
 .chatgpt-trigger[hidden], .chatgpt-panel[hidden] { display: none !important; }
 .chatgpt-trigger { min-width: 158px; min-height: 56px; display: flex; align-items: center; gap: 11px; padding: 8px 16px 8px 10px; color: #fff; background: var(--ink); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; box-shadow: 0 16px 36px rgba(13,23,38,.22); cursor: pointer; text-align: left; }
 .chatgpt-trigger .ai-logo { width: 38px; height: 38px; margin: 0; border-radius: 10px; font-size: 18px; }
 .chatgpt-trigger > span:last-child { font-size: 12px; font-weight: 900; line-height: 1.25; }
 .chatgpt-trigger small { display: block; margin-top: 3px; color: #b9c1cb; font-size: 8px; font-weight: 600; }
-.chatgpt-panel { width: 430px; padding: 18px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 22px 60px rgba(13,23,38,.24); }
+.chatgpt-panel { width: min(560px, calc(100vw - 48px)); padding: 28px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 24px 70px rgba(13,23,38,.34); }
 .chatgpt-panel > header { display: flex; align-items: flex-start; justify-content: space-between; }
 .chatgpt-panel > header > div { display: flex; align-items: center; gap: 12px; }
 .chatgpt-panel header .ai-logo { width: 40px; height: 40px; margin: 0; border-radius: 10px; font-size: 18px; }
 .chatgpt-panel header b { display: block; font-size: 14px; }
 .chatgpt-panel header small { display: block; margin-top: 4px; color: #737b84; font-size: 9px; }
 .chatgpt-panel header > button { width: 44px; height: 44px; margin: -8px -8px 0 0; color: #626b75; background: transparent; border: 0; border-radius: 8px; cursor: pointer; font-size: 24px; }
-.chatgpt-panel > p { margin: 16px 0 12px; color: #5f6873; font-size: 11px; line-height: 1.7; }
-.chatgpt-questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.chatgpt-questions button { min-height: 72px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 12px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: 800; line-height: 1.45; text-align: left; }
+.chatgpt-panel > h2 { margin: 26px 0 14px; font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -.055em; }
+.chatgpt-panel > p { margin: 0 0 20px; color: #5f6873; font-size: 13px; line-height: 1.8; }
+.chatgpt-questions { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.chatgpt-questions button { min-height: 82px; display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; padding: 17px 18px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 800; line-height: 1.45; text-align: left; }
 .chatgpt-questions button:first-child { color: #fff; background: var(--ink); border-color: var(--ink); }
 .chatgpt-questions button:hover { color: #fff; background: var(--ink); border-color: var(--ink); }
-.chatgpt-questions .question-copy b { display: block; font-size: 11px; }
-.chatgpt-questions .question-copy small { display: block; margin-top: 5px; color: #707883; font-size: 8px; font-weight: 700; }
+.chatgpt-questions .question-copy b { display: block; font-size: 14px; }
+.chatgpt-questions .question-copy small { display: block; margin-top: 6px; color: #707883; font-size: 10px; font-weight: 700; }
 .chatgpt-questions button:first-child .question-copy small, .chatgpt-questions button:hover .question-copy small { color: #b9c1cb; }
 .chatgpt-questions .question-arrow { color: var(--accent); font-size: 15px; }
-.chatgpt-panel > .chatgpt-notice { min-height: 32px; margin-bottom: 0; color: #7a828b; font-size: 9px; }
+.chatgpt-panel > .chatgpt-notice { min-height: 0; margin: 14px 0 0; color: #7a828b; font-size: 9px; }
 
 /* Ask-mode review: make cost and buying flow explicit without adding sections. */
 .positioning { min-height: 650px; padding-block: 78px; }
