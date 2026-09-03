@@ -24,7 +24,7 @@ ${canonicalUrl}
 - 月3万通まで
 - 企業サイトとフォームをAIで解析し、企業ごとの提案文を生成
 - 入力から送信まで1社ずつ動画で記録し、60日保存
-- 初期構築費50万円
+- 初期費用0円
 - 成果は商材、ターゲット、原稿、時期に左右され、保証されない
 
 【回答ルール】
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   slider?.addEventListener('input', () => {
     const count = Number(slider.value);
     if (output) output.textContent = `${count.toLocaleString()}通`;
-    if (costTotal) costTotal.innerHTML = `${(500000 + count * 5).toLocaleString()}<small>円</small>`;
+    if (costTotal) costTotal.innerHTML = `${(count * 5).toLocaleString()}<small>円</small>`;
     if (appointmentTotal) appointmentTotal.innerHTML = `${Math.ceil(count * 0.001)}〜${Math.ceil(count * 0.002)}<small>件</small>`;
   });
 
